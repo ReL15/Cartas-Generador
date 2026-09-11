@@ -1,0 +1,206 @@
+/* ==========================================================================
+   Estilos de Marcos (Frames) y Papel para Cartas
+   ========================================================================== */
+
+/* Colores y texturas de papel */
+.paper-white {
+  background-color: #ffffff !important;
+  color: #1a1a1a;
+}
+
+.paper-parchment {
+  background-color: #fcf8f0 !important;
+  color: #261f17;
+  background-image: radial-gradient(#e8decb 0.5px, transparent 0.5px);
+  background-size: 16px 16px;
+}
+
+.paper-ivory {
+  background-color: #faf7f2 !important;
+  color: #22201d;
+}
+
+.paper-cream {
+  background-color: #fbf9f4 !important;
+  color: #2b2723;
+}
+
+.paper-softblue {
+  background-color: #f3f6f9 !important;
+  color: #1b2430;
+}
+
+/* ==========================================================================
+   1. Marco Clásico Tradicional (Doble borde fino con esquinas ornamentales)
+   ========================================================================== */
+.frame-classic {
+  position: relative;
+  padding: 24mm 22mm;
+}
+
+.frame-classic::before {
+  content: "";
+  position: absolute;
+  top: 10mm;
+  left: 10mm;
+  right: 10mm;
+  bottom: 10mm;
+  border: 1px solid #786452;
+  pointer-events: none;
+}
+
+.frame-classic::after {
+  content: "";
+  position: absolute;
+  top: 12mm;
+  left: 12mm;
+  right: 12mm;
+  bottom: 12mm;
+  border: 2px solid #524233;
+  pointer-events: none;
+}
+
+/* Esquinas ornamentadas en Clásico */
+.frame-ornament-corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.frame-classic .corner-tl { top: 9mm; left: 9mm; }
+.frame-classic .corner-tr { top: 9mm; right: 9mm; transform: scaleX(-1); }
+.frame-classic .corner-bl { bottom: 9mm; left: 9mm; transform: scaleY(-1); }
+.frame-classic .corner-br { bottom: 9mm; right: 9mm; transform: scale(-1); }
+
+/* ==========================================================================
+   2. Marco Minimalista Moderno (Líneas finas, ángulos limpios)
+   ========================================================================== */
+.frame-modern {
+  position: relative;
+  padding: 24mm 22mm;
+}
+
+.frame-modern::before {
+  content: "";
+  position: absolute;
+  top: 10mm;
+  left: 10mm;
+  right: 10mm;
+  bottom: 10mm;
+  border: 1px solid #cbd5e1;
+  pointer-events: none;
+}
+
+.frame-modern::after {
+  content: "";
+  position: absolute;
+  top: 8mm;
+  left: 30mm;
+  right: 30mm;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #94a3b8, transparent);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   3. Marco Formal Corporativo (Franja superior e inferior institucional)
+   ========================================================================== */
+.frame-corporate {
+  position: relative;
+  padding: 25mm 22mm 22mm 22mm;
+}
+
+.frame-corporate::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 7mm;
+  background: linear-gradient(90deg, #1e3a8a, #3b82f6, #0284c7);
+  pointer-events: none;
+}
+
+.frame-corporate::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3mm;
+  background: #1e293b;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   4. Marco Romántico / Vintage (Filigranas florales)
+   ========================================================================== */
+.frame-vintage {
+  position: relative;
+  padding: 24mm 22mm;
+}
+
+.frame-vintage::before {
+  content: "";
+  position: absolute;
+  top: 10mm;
+  left: 10mm;
+  right: 10mm;
+  bottom: 10mm;
+  border: 2px double #8c5b3f;
+  pointer-events: none;
+}
+
+.frame-vintage .corner-tl { top: 8mm; left: 8mm; }
+.frame-vintage .corner-tr { top: 8mm; right: 8mm; transform: scaleX(-1); }
+.frame-vintage .corner-bl { bottom: 8mm; left: 8mm; transform: scaleY(-1); }
+.frame-vintage .corner-br { bottom: 8mm; right: 8mm; transform: scale(-1); }
+
+/* ==========================================================================
+   5. Marco Real Dorado (Luxury Gold & Royal Crest)
+   ========================================================================== */
+.frame-royal {
+  position: relative;
+  padding: 25mm 22mm;
+}
+
+.frame-royal::before {
+  content: "";
+  position: absolute;
+  top: 10mm;
+  left: 10mm;
+  right: 10mm;
+  bottom: 10mm;
+  border: 2px solid #b8860b;
+  outline: 2px solid #d4af37;
+  outline-offset: -4px;
+  box-shadow: inset 0 0 0 2px #d4af37, inset 0 0 0 4px #faf0be;
+  pointer-events: none;
+}
+
+.frame-royal::after {
+  content: "";
+  position: absolute;
+  top: 14mm;
+  left: 14mm;
+  right: 14mm;
+  bottom: 14mm;
+  border: 1px dashed rgba(184, 134, 11, 0.5);
+  pointer-events: none;
+}
+
+/* Esquinas ornamentadas en Marco Real */
+.frame-royal .corner-tl { top: 9mm; left: 9mm; }
+.frame-royal .corner-tr { top: 9mm; right: 9mm; transform: scaleX(-1); }
+.frame-royal .corner-bl { bottom: 9mm; left: 9mm; transform: scaleY(-1); }
+.frame-royal .corner-br { bottom: 9mm; right: 9mm; transform: scale(-1); }
+
+/* ==========================================================================
+   6. Sin Marco (Editorial Limpio)
+   ========================================================================== */
+.frame-none {
+  position: relative;
+  padding: 22mm 22mm;
+}

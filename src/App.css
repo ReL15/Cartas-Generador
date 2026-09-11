@@ -1,0 +1,1286 @@
+/* ==========================================================================
+   Creador de Cartas - Estilos Principales de la Aplicación
+   ========================================================================== */
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-app);
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Encabezado del Estudio (Header)
+   -------------------------------------------------------------------------- */
+.studio-header {
+  height: 64px;
+  background-color: var(--bg-sidebar);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 20;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand-logo-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.brand-icon {
+  font-size: 1.3rem;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.brand-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.btn-icon-only {
+  padding: 0.55rem;
+  width: 36px;
+  height: 36px;
+}
+
+/* --------------------------------------------------------------------------
+   Layout Principal (Split Screen)
+   -------------------------------------------------------------------------- */
+.studio-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  height: calc(100vh - 64px);
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar de Edición (Izquierda)
+   -------------------------------------------------------------------------- */
+.studio-sidebar {
+  width: 520px;
+  min-width: 440px;
+  max-width: 560px;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Pestañas de Navegación del Editor */
+.editor-nav-tabs {
+  display: flex;
+  background-color: var(--bg-sidebar);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.35rem 0.5rem 0 0.5rem;
+  gap: 0.25rem;
+  overflow-x: auto;
+}
+
+.nav-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.nav-tab-btn:hover {
+  color: var(--text-main);
+  background-color: var(--bg-panel-hover);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.nav-tab-btn.active {
+  color: var(--accent-gold-text);
+  font-weight: 600;
+  border-bottom-color: var(--accent-gold);
+  background-color: var(--bg-panel);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+/* Contenido del Sidebar Scrollable */
+.sidebar-scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Tarjetas de Sección del Editor */
+.editor-section-card {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease;
+}
+
+.editor-section-card:hover {
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.section-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.section-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  background-color: var(--bg-panel-hover);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+}
+
+.input-group-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-hint {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.text-btn-xs {
+  background: none;
+  border: none;
+  color: var(--accent-gold);
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.text-btn-xs:hover {
+  color: var(--accent-gold-light);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Barra de Herramientas del Editor Enriquecido (RichTextEditor)
+   -------------------------------------------------------------------------- */
+.editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--bg-panel-hover);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  padding: 0.5rem 0.65rem;
+  border-bottom: none;
+}
+
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding-right: 0.4rem;
+  border-right: 1px solid var(--border-subtle);
+}
+
+.toolbar-group:last-child {
+  border-right: none;
+}
+
+.tool-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tool-btn:hover {
+  background-color: var(--bg-panel-hover);
+  color: var(--text-main);
+}
+
+.tool-btn.active {
+  background-color: var(--accent-gold-subtle);
+  color: var(--accent-gold-text);
+  border-color: var(--accent-gold);
+}
+
+.toolbar-select-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.15rem 0.45rem;
+}
+
+.toolbar-select {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-size: 0.8rem;
+  cursor: pointer;
+  outline: none;
+  max-width: 170px;
+}
+
+.toolbar-select option {
+  background-color: var(--bg-panel);
+  color: var(--text-main);
+}
+
+.toolbar-select-sm {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.4rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.toolbar-select-sm option {
+  background-color: var(--bg-panel);
+}
+
+/* Paleta de colores de tinta */
+.color-dots-row {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: 0.3rem;
+}
+
+.color-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.12s ease;
+}
+
+.color-dot:hover {
+  transform: scale(1.2);
+}
+
+.color-dot.active {
+  box-shadow: 0 0 0 2px var(--accent-gold);
+}
+
+.color-picker-label {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  align-items: center;
+  justify-content: center;
+}
+
+.color-picker-input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.color-picker-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px dashed #ffffff;
+}
+
+/* Área de edición de texto enriquecido */
+.rich-editor-wrapper {
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  padding: 1rem;
+  min-height: 220px;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.rich-editor-content {
+  min-height: 190px;
+  outline: none;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.rich-editor-content:empty::before {
+  content: attr(placeholder);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.rich-editor-content p {
+  margin-bottom: 0.75rem;
+}
+
+.rich-editor-content ul, .rich-editor-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.rich-editor-content li {
+  margin-bottom: 0.25rem;
+}
+
+.editor-stats-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  padding: 0.2rem 0.25rem;
+}
+
+.bullet-sep {
+  opacity: 0.4;
+}
+
+/* --------------------------------------------------------------------------
+   Selector de Firmas & SignaturePad
+   -------------------------------------------------------------------------- */
+.signature-type-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.signature-type-btn {
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-align: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
+}
+
+.signature-type-btn:hover {
+  background-color: var(--bg-panel-hover);
+  color: var(--text-main);
+}
+
+.signature-type-btn.active {
+  border-color: var(--accent-gold);
+  background-color: var(--accent-gold-subtle);
+  color: var(--accent-gold-text);
+}
+
+.sig-btn-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.sig-btn-desc {
+  font-size: 0.68rem;
+  opacity: 0.75;
+}
+
+.drawn-signature-preview-box {
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.drawn-sig-img-wrap {
+  height: 60px;
+  background-color: #ffffff;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+}
+
+.drawn-sig-img-wrap img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Modal SignaturePad */
+.signature-modal-card {
+  background-color: var(--bg-sidebar);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  width: 100%;
+  max-width: 460px;
+  box-sizing: border-box;
+  box-shadow: var(--shadow-lg);
+}
+
+.signature-modal-header {
+  margin-bottom: 0.85rem;
+}
+
+.signature-canvas-wrap {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: var(--radius-md);
+  border: 2px dashed #d1d5db;
+  height: 175px;
+  overflow: hidden;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.signature-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.signature-baseline-guide {
+  position: absolute;
+  bottom: 35px;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  border-bottom: 1px dashed rgba(156, 163, 175, 0.4);
+  pointer-events: none;
+}
+
+.signature-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.signature-toolbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.signature-colors {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.color-dot-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.color-dot-btn:hover {
+  transform: scale(1.1);
+}
+
+.color-dot-btn.active {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 2px var(--bg-sidebar);
+  transform: scale(1.15);
+}
+
+.signature-bottom-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.signature-bottom-actions .btn {
+  padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  min-height: 40px;
+}
+
+/* --------------------------------------------------------------------------
+   Selector de Marcos & Papel (FrameSelector)
+   -------------------------------------------------------------------------- */
+.frames-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+
+.frame-card-option {
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.frame-card-option:hover {
+  background-color: var(--bg-panel-hover);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.frame-card-option.selected {
+  border-color: var(--accent-gold);
+  background-color: var(--accent-gold-subtle);
+}
+
+.frame-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.frame-card-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.frame-card-desc {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+  margin-bottom: 0.4rem;
+}
+
+.frame-card-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  padding: 0.1rem 0.4rem;
+  background-color: var(--bg-panel-hover);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  border-radius: var(--radius-full);
+}
+
+.paper-swatches-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.paper-swatch-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.65rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.paper-swatch-item:hover {
+  background-color: var(--bg-panel-hover);
+}
+
+.paper-swatch-item.selected {
+  border-color: var(--accent-gold);
+  background-color: var(--accent-gold-subtle);
+}
+
+.paper-color-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  flex-shrink: 0;
+}
+
+.paper-name {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+/* --------------------------------------------------------------------------
+   Área de Vista Previa de la Carta (Derecha)
+   -------------------------------------------------------------------------- */
+.preview-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--preview-bg-gradient);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Barra de controles de Zoom */
+.preview-toolbar {
+  height: 44px;
+  background-color: var(--bg-sidebar);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  z-index: 10;
+}
+
+.preview-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.preview-zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.zoom-btn {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.zoom-btn:hover {
+  background: var(--bg-panel-hover);
+  color: var(--text-main);
+}
+
+.zoom-level-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-width: 44px;
+  text-align: center;
+  color: var(--text-main);
+}
+
+/* Viewport con Scroll de la Hoja */
+.preview-viewport {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Hoja de Carta Realista (.letter-paper)
+   -------------------------------------------------------------------------- */
+.letter-paper {
+  width: 210mm;
+  min-height: 297mm;
+  box-shadow: var(--shadow-paper);
+  border-radius: 2px;
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: top center;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Encabezamiento en la Carta */
+.letter-header-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 18mm;
+}
+
+.letter-date-display {
+  font-size: 15px;
+  font-weight: 500;
+  color: inherit;
+}
+
+.letter-recipient-display {
+  margin-bottom: 14mm;
+  line-height: 1.55;
+}
+
+.recipient-primary {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.recipient-secondary {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* Cuerpo en la Carta */
+.letter-body-display {
+  flex: 1;
+  word-break: break-word;
+}
+
+.letter-body-display p {
+  margin-bottom: 1em;
+  text-indent: 1.5em;
+}
+
+.letter-body-display p:first-of-type {
+  text-indent: 0;
+}
+
+.letter-body-display ul, .letter-body-display ol {
+  margin-left: 2em;
+  margin-bottom: 1em;
+}
+
+.letter-body-display li {
+  margin-bottom: 0.3em;
+}
+
+/* Pie de Carta en la Hoja */
+.letter-footer-display {
+  margin-top: 14mm;
+  padding-top: 5mm;
+  page-break-inside: avoid;
+}
+
+.letter-farewell-text {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4mm;
+}
+
+.letter-signature-area {
+  min-height: 22mm;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 3mm;
+}
+
+.letter-signature-cursive {
+  font-family: 'Great Vibes', 'Dancing Script', cursive;
+  font-size: 32px;
+  color: inherit;
+  opacity: 0.95;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  padding-bottom: 4px;
+  min-width: 140px;
+  display: inline-block;
+}
+
+.letter-signature-drawn {
+  max-width: 180px;
+  max-height: 70px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  padding-bottom: 4px;
+}
+
+.letter-signature-drawn img {
+  max-height: 60px;
+  max-width: 100%;
+  display: block;
+}
+
+.letter-signature-space {
+  height: 20mm;
+  width: 160px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.letter-sender-name {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 2mm;
+}
+
+.letter-sender-title {
+  font-size: 13px;
+  opacity: 0.8;
+  margin-top: 1mm;
+}
+
+/* --------------------------------------------------------------------------
+   Modales y Notificaciones
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+}
+
+.modal-content {
+  max-width: 90vw;
+}
+
+.templates-modal-container {
+  background-color: var(--bg-sidebar);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  width: 720px;
+  max-width: 95vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.templates-grid-list {
+  padding: 1.25rem 1.5rem;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.template-card {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.template-card:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-2px);
+  background-color: var(--bg-panel-hover);
+}
+
+.template-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.template-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.template-card-description {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 0.85rem;
+  flex: 1;
+}
+
+.template-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 0.65rem;
+}
+
+.template-card-sender {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Toast Notificaciones */
+.status-toast {
+  position: absolute;
+  top: 72px;
+  right: 24px;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  z-index: 50;
+  animation: fadeInDown 0.2s ease;
+}
+
+.status-success {
+  border-color: var(--accent-emerald);
+  color: #6ee7b7;
+}
+
+.status-error {
+  border-color: var(--accent-rose);
+  color: #fda4af;
+}
+
+.status-info {
+  border-color: var(--accent-primary);
+  color: #93c5fd;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --------------------------------------------------------------------------
+   Alternador de Tema (Theme Toggle)
+   -------------------------------------------------------------------------- */
+.theme-toggle-btn {
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.theme-btn-label {
+  display: inline;
+}
+
+/* --------------------------------------------------------------------------
+   Placeholder en la Vista Previa de la Carta
+   -------------------------------------------------------------------------- */
+.letter-placeholder-text {
+  opacity: 0.35;
+  font-style: italic;
+  user-select: none;
+}
+
+
+/* --------------------------------------------------------------------------
+   Selector de Vistas en Móvil / Tablet (mobile-view-tabs)
+   -------------------------------------------------------------------------- */
+.mobile-view-tabs {
+  display: none;
+  background-color: var(--bg-input);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.4rem 0.75rem;
+  gap: 0.5rem;
+  z-index: 15;
+}
+
+.mobile-tab-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-panel);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-height: 42px;
+}
+
+.mobile-tab-btn.active {
+  background: var(--accent-gold-subtle);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold-light);
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.2);
+}
+
+/* Barra de acciones flotante en móvil */
+.mobile-preview-actions-bar {
+  display: none;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-sidebar);
+  border-top: 1px solid var(--border-color);
+  padding: 0.75rem 1rem;
+  gap: 0.5rem;
+  z-index: 30;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Diseño Responsivo (Tablets y Móviles: <= 1024px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 1024px) {
+  .mobile-view-tabs {
+    display: flex;
+  }
+
+  .studio-layout {
+    height: calc(100vh - 116px);
+    position: relative;
+  }
+
+  /* Modo Editor Activo en Móvil/Tablet */
+  .mobile-view-editor .studio-sidebar {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    height: 100% !important;
+    border-right: none;
+  }
+
+  /* Modo Editor Activo en Móvil/Tablet: mantener el preview renderizable fuera de pantalla */
+  .mobile-view-editor .preview-container {
+    position: fixed !important;
+    left: -9999px !important;
+    top: 0 !important;
+    width: 210mm !important;
+    height: auto !important;
+    min-height: 297mm !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    z-index: -9999 !important;
+    display: flex !important;
+    overflow: visible !important;
+  }
+
+  /* Modo Vista Previa Activo en Móvil/Tablet */
+  .mobile-view-preview .studio-sidebar {
+    display: none !important;
+  }
+
+  .mobile-view-preview .preview-container {
+    display: flex !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .mobile-view-preview .mobile-preview-actions-bar {
+    display: flex;
+  }
+
+  .preview-viewport {
+    padding: 1.5rem 0.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Diseño para Smartphones (<= 768px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+  .studio-header {
+    height: auto;
+    padding: 0.6rem 0.85rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
+  .header-actions {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .theme-btn-label {
+    display: none;
+  }
+
+  .btn-text-desktop {
+    display: none;
+  }
+
+  .btn-print-header {
+    display: none; /* En móvil se imprime desde la barra flotante o menú */
+  }
+
+  .theme-toggle-btn {
+    padding: 0.5rem;
+  }
+
+  .frames-grid,
+  .paper-swatches-grid,
+  .signature-type-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar-scroll-content {
+    padding: 0.85rem;
+    gap: 1rem;
+  }
+
+  .editor-section-card {
+    padding: 1rem;
+  }
+
+  /* Toolbar de formato adaptada a pantallas táctiles */
+  .editor-toolbar {
+    padding: 0.4rem;
+    gap: 0.25rem;
+  }
+
+  .tool-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .toolbar-select {
+    max-width: 130px;
+    font-size: 0.75rem;
+  }
+
+  /* Prevención de zoom forzado en iOS */
+  .form-input, .form-select, .form-textarea {
+    font-size: 16px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Diseño para Pantallas Muy Pequeñas (<= 480px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 480px) {
+  .brand-title {
+    font-size: 1rem;
+  }
+
+  .brand-logo-badge {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand-icon {
+    font-size: 1.1rem;
+  }
+
+  .input-group-row {
+    flex-direction: column;
+  }
+
+  .input-group-row .form-select {
+    max-width: 100% !important;
+  }
+
+  .preview-toolbar {
+    padding: 0 0.75rem;
+  }
+
+  .meta-dim, .meta-sep {
+    display: none;
+  }
+}

@@ -1,0 +1,273 @@
+/* ==========================================================================
+   Reglas de Impresión Directa (@media print)
+   Garantiza que ÚNICAMENTE se imprima la hoja de la carta (#letter-paper-preview),
+   ocultando todo el entorno de edición, controles, cabecera y barras laterales,
+   y acoplando con precisión matemática los marcos, esquinas y contenidos.
+   ========================================================================== */
+
+@page {
+  size: A4 portrait;
+  margin: 0mm;
+}
+
+@media print {
+  /* 1. Forzar color y gráficos de fondo exactos en todos los motores de impresión */
+  *,
+  *::before,
+  *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Resetear lienzo del documento para impresión limpia */
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* 3. OCULTAR TOTALMENTE LA INTERFAZ DE USUARIO:
+     Header, sidebar del editor, pestañas, controles de zoom, botones flotantes,
+     modales, avisos emergentes y cualquier elemento ajeno a la hoja de carta */
+  header,
+  aside,
+  nav,
+  button,
+  .studio-header,
+  .studio-sidebar,
+  .mobile-view-tabs,
+  .editor-nav-tabs,
+  .sidebar-scroll-content,
+  .editor-section-card,
+  .preview-toolbar,
+  .mobile-preview-actions-bar,
+  .modal-overlay,
+  .templates-modal,
+  .signature-modal,
+  .status-toast,
+  .letter-placeholder-text,
+  .btn,
+  .no-print {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    max-width: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    left: -99999px !important;
+    top: -99999px !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+  }
+
+  /* 4. Desplegar los contenedores principales en flujo natural y sin restricciones */
+  #root,
+  .app-container,
+  .studio-layout {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  /* 5. Restaurar el contenedor de vista previa tanto en modo escritorio como en modo móvil/editor */
+  .preview-container,
+  .mobile-view-editor .preview-container,
+  .mobile-view-preview .preview-container {
+    display: block !important;
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow: visible !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    pointer-events: auto !important;
+    z-index: auto !important;
+  }
+
+  .preview-viewport {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+
+  .paper-zoom-wrapper {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+
+  /* 6. ACOPLAR LA CARTA Y LOS DISEÑOS AL TAMAÑO DE PÁGINA (A4: 210mm x 297mm) */
+  .letter-paper {
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    width: 210mm !important;
+    max-width: 100% !important;
+    min-height: 296.5mm !important;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    border: none !important;
+    overflow: visible !important;
+    page-break-inside: auto !important;
+    page-break-after: auto !important;
+  }
+
+  /* Asegurar fidelidad cromática en las tonalidades de papel */
+  .paper-white {
+    background-color: #ffffff !important;
+  }
+  .paper-ivory {
+    background-color: #faf7f2 !important;
+  }
+  .paper-parchment {
+    background-color: #fcf8f0 !important;
+    background-image: radial-gradient(#e8decb 0.5px, transparent 0.5px) !important;
+    background-size: 16px 16px !important;
+  }
+  .paper-cream {
+    background-color: #fbf9f4 !important;
+  }
+  .paper-softblue {
+    background-color: #f3f6f9 !important;
+  }
+
+  /* Acoplamiento fino de marcos al borde de la página */
+  .frame-classic::before {
+    top: 10mm !important;
+    left: 10mm !important;
+    right: 10mm !important;
+    bottom: 10mm !important;
+    border: 1px solid #786452 !important;
+  }
+  .frame-classic::after {
+    top: 12mm !important;
+    left: 12mm !important;
+    right: 12mm !important;
+    bottom: 12mm !important;
+    border: 2px solid #524233 !important;
+  }
+
+  .frame-modern::before {
+    top: 10mm !important;
+    left: 10mm !important;
+    right: 10mm !important;
+    bottom: 10mm !important;
+    border: 1px solid #cbd5e1 !important;
+  }
+
+  .frame-corporate::before {
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 7mm !important;
+  }
+  .frame-corporate::after {
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3mm !important;
+  }
+
+  .frame-vintage::before {
+    top: 10mm !important;
+    left: 10mm !important;
+    right: 10mm !important;
+    bottom: 10mm !important;
+    border: 2px double #8c5b3f !important;
+  }
+
+  .frame-royal::before {
+    top: 10mm !important;
+    left: 10mm !important;
+    right: 10mm !important;
+    bottom: 10mm !important;
+    border: 2px solid #b8860b !important;
+    outline: 2px solid #d4af37 !important;
+    outline-offset: -4px !important;
+  }
+  .frame-royal::after {
+    top: 14mm !important;
+    left: 14mm !important;
+    right: 14mm !important;
+    bottom: 14mm !important;
+    border: 1px dashed rgba(184, 134, 11, 0.5) !important;
+  }
+
+  /* Posicionamiento exacto de esquinas decorativas vectoriales */
+  .frame-classic .corner-tl { top: 9mm !important; left: 9mm !important; }
+  .frame-classic .corner-tr { top: 9mm !important; right: 9mm !important; transform: scaleX(-1) !important; }
+  .frame-classic .corner-bl { bottom: 9mm !important; left: 9mm !important; transform: scaleY(-1) !important; }
+  .frame-classic .corner-br { bottom: 9mm !important; right: 9mm !important; transform: scale(-1) !important; }
+
+  .frame-vintage .corner-tl { top: 8mm !important; left: 8mm !important; }
+  .frame-vintage .corner-tr { top: 8mm !important; right: 8mm !important; transform: scaleX(-1) !important; }
+  .frame-vintage .corner-bl { bottom: 8mm !important; left: 8mm !important; transform: scaleY(-1) !important; }
+  .frame-vintage .corner-br { bottom: 8mm !important; right: 8mm !important; transform: scale(-1) !important; }
+
+  .frame-royal .corner-tl { top: 9mm !important; left: 9mm !important; }
+  .frame-royal .corner-tr { top: 9mm !important; right: 9mm !important; transform: scaleX(-1) !important; }
+  .frame-royal .corner-bl { bottom: 9mm !important; left: 9mm !important; transform: scaleY(-1) !important; }
+  .frame-royal .corner-br { bottom: 9mm !important; right: 9mm !important; transform: scale(-1) !important; }
+
+  /* Ajustes de espaciado optimizados para encajar perfectamente en la página */
+  .letter-header-row {
+    margin-bottom: 12mm !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .letter-recipient-display {
+    margin-bottom: 10mm !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .letter-footer-display {
+    margin-top: 10mm !important;
+    padding-top: 4mm !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .letter-body-display {
+    word-break: break-word !important;
+  }
+}
