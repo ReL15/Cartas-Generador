@@ -76,7 +76,7 @@ export default function FooterEditor({ data, onChange }) {
           id="letter-sender-input"
           type="text"
           className="form-input"
-          placeholder="Tu nombre completo o cargo"
+          placeholder="Escriba su nombre"
           value={data.sender || ""}
           onChange={(e) => onChange({ sender: e.target.value })}
         />

@@ -68,7 +68,7 @@ export default function HeaderEditor({ data, onChange }) {
           id="letter-place-input"
           type="text"
           className="form-input"
-          placeholder="Ej. Madrid, Ciudad de México, Buenos Aires..."
+          placeholder="Direccion del publicador"
           value={data.place || ""}
           onChange={(e) => onChange({ place: e.target.value })}
         />
@@ -86,7 +86,7 @@ export default function HeaderEditor({ data, onChange }) {
           id="letter-recipient-input"
           rows={3}
           className="form-textarea"
-          placeholder="Ej:&#10;Estimada Dra. Elena Ramos Morales&#10;Directora de Operaciones"
+          placeholder="A quien esta dirija la carta"
           value={data.recipient || ""}
           onChange={(e) => onChange({ recipient: e.target.value })}
         />
